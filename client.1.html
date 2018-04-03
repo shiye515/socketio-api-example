@@ -1,5 +1,4 @@
 <script src="/socket.io/socket.io.js"></script>
-<!-- <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script> -->
 
 <script>
   // console.log(1)
@@ -9,9 +8,13 @@
     console.log('n1 socket received:', msg)
   })
   socket1.emit('msg', 'n1 client message')
+  // 下面两个方法请在控制台执行
+  // 通知服务端，向所有/n1命名空间下的客户端发送通知
   window.b = function () {
     socket1.emit('broadcast', 'n1 client broadcast')
   }
+
+  // 通知服务端，向所有/n1命名空间下并且加入roomID:room的客户端发送通知
   window.r = function () {
     socket1.emit('room', 'n1 client room')
   }

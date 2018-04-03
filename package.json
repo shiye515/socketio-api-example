@@ -1,12 +1,11 @@
 {
-  "name": "socketio",
+  "name": "socketio-api-example",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "debug": "DEBUG=* node index.js",
-    "dev": "node index.js",
-    "watch": "pm2 restart ecosystem.config.js"
+    "dev": "pm2 restart ecosystem.config.js"
   },
   "dependencies": {
     "express": "^4.16.3",

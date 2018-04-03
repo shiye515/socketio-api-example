@@ -37,10 +37,10 @@ group0.forEach(n => {
     })
     socket.emit('msg', n + ' server message')
 
-    // broadcast test
+    // broadcast
     socket.on('broadcast', function (msg) {
-      // socket.broadcast.emit('msg', `broadcast: ${msg}`)
-      nsp.emit('msg', `broadcast: ${msg}`)
+      // socket.broadcast.emit('msg', `broadcast: ${msg}`)// 向除了发送消息以外的所有本命名空间下的客户端发送通知
+      nsp.emit('msg', `broadcast: ${msg}`)// 向所有本命名空间下的客户端发送通知
     })
 
     // room
