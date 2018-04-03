@@ -1,0 +1,22 @@
+<script src="/socket.io/socket.io.js"></script>
+<!-- <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script> -->
+
+<script>
+  // window.localStorage.debug = 'engine.io-client:socket'
+  // namespace default
+  // var socket = window.io()
+  // socket.on('msg', function (msg) {
+  //   console.log('default socket received:', msg)
+  // })
+  // socket.emit('msg', 'default client message')
+
+  // other namespace
+  const namespaces = ['n0', 'n1', 'n2', 'n3', 'n4', 'n5']
+  namespaces.forEach(n => {
+    let socket = window.io('/' + n)
+    socket.on('msg', function (msg) {
+      console.log(`%c${n} socket received: ${msg}`, 'background:#eee;border-left:5px solid #82a6f5;padding-left:5px;')
+    })
+    socket.emit('msg', `${n} client message`)
+  })
+</script>

@@ -1,0 +1,18 @@
+<script src="/socket.io/socket.io.js"></script>
+<!-- <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script> -->
+
+<script>
+  // console.log(1)
+  // namespace n1
+  var socket1 = window.io('/n1')
+  socket1.on('msg', function (msg) {
+    console.log('n1 socket received:', msg)
+  })
+  socket1.emit('msg', 'n1 client message')
+  window.b = function () {
+    socket1.emit('broadcast', 'n1 client broadcast')
+  }
+  window.r = function () {
+    socket1.emit('room', 'n1 client room')
+  }
+</script>
